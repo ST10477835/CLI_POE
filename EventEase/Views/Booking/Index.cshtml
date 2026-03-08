@@ -1,0 +1,9 @@
+﻿@model List<Booking>
+
+<h2>Bookings</h2>
+
+<ul>
+    @foreach(var booking in Model){
+        <li>@booking.evt.Name</li>
+    }
+</ul>

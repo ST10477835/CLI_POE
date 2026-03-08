@@ -1,0 +1,59 @@
+﻿using EventEase.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace EventEase.Controllers
+{
+    public class BookingController : Controller
+    {
+
+        public static List<Booking> bookings = new List<Booking>();
+        public static int nextId = 1;
+        public IActionResult Index()
+        {
+            return View(bookings);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Booking booking)
+        {
+            booking.Id = nextId++;
+            bookings.Add(booking);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Update(int Id)
+        {
+            Booking booking = bookings.FirstOrDefault(b => b.Id == Id);
+            if (booking == null) return NotFound();
+
+            return View(booking);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Booking updatedBooking)
+        {
+            Booking booking = bookings.FirstOrDefault(b=>b.Id == updatedBooking.Id);
+            if (booking == null) return NotFound();
+
+            booking.venue = updatedBooking.venue;
+            booking.evt = updatedBooking.evt;
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int Id)
+        {
+            Booking booking = bookings.FirstOrDefault(b => b.Id == Id);
+            if (booking == null) return NotFound();
+
+            bookings.Remove(booking);
+            return RedirectToAction("Index");
+        }
+    }
+
+}
