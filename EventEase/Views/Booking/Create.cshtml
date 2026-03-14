@@ -1,24 +1,19 @@
 ﻿@model Booking
-
-<h2>Create Booking</h2>
+@{
+    var events = ViewBag.Event as List<Event>;
+}
+<h2>Create a new Booking</h2>
 
 <form asp-action="Create" method="post">
     <input type="hidden" asp-for="Id"/>
-    <h3>Event Details</h3>
-    <label>Name: </label>
-    <input asp-for="evt.Name"/>
-    <br/>
-    <label>Capacity</label>
-    <input type="number" asp-for="evt.Capacity" />
-    <br />
-    <label> Start Date</label>
-    <input type="date" asp-for="evt.StartDate" />
-    <br />
-    <label> End Date</label>
-    <input type="date" asp-for="evt.EndDate" />
-    <br />
-    <h3>Venue Details</h3>
-    <label>Name: </label>
-    <input asp-for="venue.Name"/>
-    <button type="Submit">Create Event</button>
+    <label>Event: </label>
+    <select asp-for="Event.Id">
+        @foreach(var evt in events)
+        {
+            <option value="@evt.Id">@evt.Name</option>     
+        }
+    </select>
+    <label>Name</label>
+    <input asp-for="UserName"/>
+    <button>Add Booking</button>
 </form>

@@ -4,6 +4,10 @@
 
 <ul>
     @foreach(var booking in Model){
-        <li>@booking.evt.Name</li>
+        <li><span>@booking.Event.Name</span><br/>
+            <span>@booking.UserName</span><br/>
+            <a asp-action="Update" asp-route-id="@booking.Id">Update Booking</a>
+            <a asp-action="Delete" asp-route-id="@booking.Id">Delete Booking</a>
+        </li>
     }
 </ul>

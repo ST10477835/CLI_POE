@@ -96,3 +96,4 @@ C:\Users\abule\OneDrive\Desktop\EventEase\EventEase\obj\Debug\net10.0\refint\Eve
 C:\Users\abule\OneDrive\Desktop\EventEase\EventEase\obj\Debug\net10.0\EventEase.pdb
 C:\Users\abule\OneDrive\Desktop\EventEase\EventEase\obj\Debug\net10.0\EventEase.genruntimeconfig.cache
 C:\Users\abule\OneDrive\Desktop\EventEase\EventEase\obj\Debug\net10.0\ref\EventEase.dll
+C:\Users\abule\OneDrive\Desktop\EventEase\EventEase\obj\Debug\net10.0\EventEase.sourcelink.json

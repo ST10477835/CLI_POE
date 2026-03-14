@@ -7,7 +7,7 @@ namespace EventEase.Models
     {
         [Key]
         public int Id { get; set; }
-        public Venue venue { get; set; }
-        public Event evt { get; set; }
+        public String UserName { get; set; } 
+        public Event Event { get; set; }
     }
 }

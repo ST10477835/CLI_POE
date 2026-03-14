@@ -6,6 +6,8 @@ namespace EventEase.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
+        public String Name { get; set; }
+        public String Location { get; set; }
+        public int Capacity { get; set; }
     }
 }

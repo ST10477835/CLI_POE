@@ -1,21 +1,14 @@
 ﻿@model List<Event>
 
-<h1>Events</h1>
+<h2>Events</h2>
 
 <ul>
-    @foreach(var evt in Model){
-            <li>@evt.Name</li>
-            <form asp-action="Update" method="get">
-                <input type="hidden" name="id" value="@evt.Id"/>
-                <button type="submit">Update</button>
-            </form>
-            <form asp-action="Delete" method="post">
-                <input type="hidden" name="id" value="@evt.Id"/>
-                <button type="submit">Delete</button>
-            </form>
+    @foreach(var evt in Model)
+    {
+        <li><span>@evt.Name</span><br/>
+            <span>@evt.Venue.Name</span><br/>
+            <a asp-action="Update" asp-route-id="@evt.Id">Update Event</a>
+            <a asp-action="Delete" asp-route-id="@evt.Id">Delete Event</a>
+        </li>
     }
 </ul>
-
-<form asp-action="Create" method="get">
-    <button type="submit">Create Event</button>
-</form>

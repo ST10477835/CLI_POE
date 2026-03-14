@@ -1,20 +1,23 @@
 ﻿@model Event
-
+@{
+    var venues = ViewBag.Venue as List<Venue>;
+}
 <h2>Update Event</h2>
 
 <form asp-action="Update" method="post">
-    <input type="hidden" asp-for="Id"/>
-    <label>Name</label>
-    <input asp-for="Name"/>
-    <br />
-    <label>Capacity</label>
-    <input type="number" asp-for="Capacity"/>
-    <br />
-    <label>Start Date</label>
+    <input type="hidden" asp-for="Id" />
+    <label>Name:</label>
+    <input asp-for="Name" value="@Model.Name"/>
+    <label>Venue:</label>
+    <select asp-for="Venue.Id">
+        @foreach(var venue in venues)
+        {
+            <option value="@venue.Id">@venue.Name</option>    
+        }
+    </select>
+    <label>Start Date: </label>
     <input type="date" asp-for="StartDate"/>
-    <br />
-    <label>End Date</label>
+    <label>End Date: </label>
     <input type="date" asp-for="EndDate"/>
-    <br />
-    <button type="submit">Submit</button>
+    <button type="submit">Update Event</button>
 </form>
