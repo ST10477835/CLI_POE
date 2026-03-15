@@ -1,6 +1,6 @@
 ﻿@model Event
 @{
-    var venues = ViewBag.Venue as List<Venue>;
+    var venues = ViewBag.Venue;
 }
 <h2>Update Event</h2>
 
@@ -18,6 +18,6 @@
     <label>Start Date: </label>
     <input type="date" asp-for="StartDate"/>
     <label>End Date: </label>
-    <input type="date" asp-for="EndDate"/>
+    <input type="date" asp-for="EndDate"/><br/>
     <button type="submit">Update Event</button>
 </form>

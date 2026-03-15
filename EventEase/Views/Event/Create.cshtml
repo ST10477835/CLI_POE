@@ -1,8 +1,7 @@
 ﻿@model Event
 @{
-    var venues = ViewBag.Venue as List<Venue>;
+    var venues = ViewBag.Venue;
 }
-
 <h2>Create a new Event</h2>
 
 <form asp-action="Create" method="post">
@@ -15,6 +14,10 @@
                 }
     </select>
     <label>Name</label>
-    <input asp-for="Name" />
+    <input asp-for="Name" /><br/>
+    <label>Start Date</label>
+    <input type="date" asp-for="StartDate"/><br/>
+    <label>End Date</label>
+    <input type="date" asp-for="EndDate"/><br/>
     <button>Add Event</button>
 </form>

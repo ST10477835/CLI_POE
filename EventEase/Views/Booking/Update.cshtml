@@ -1,6 +1,6 @@
 ﻿@model Booking
 @{
-    var events = ViewBag.Event as List<Event>;
+    var events = ViewBag.Event;
 }
 
 <h2>Update Booking</h2>
@@ -8,13 +8,13 @@
 <form asp-action="Update" method="post">
     <input type="hidden" asp-for="Id"/>
     <label>User Name: </label>
-    <input asp-for="UserName" value="@Model.UserName"/>
+    <input asp-for="UserName" value="@Model.UserName"/><br/>
     <label>Event: </label>
     <select asp-for="Event.Id">
         @foreach(var evt in events)
         {
              <option value="@evt.Id">@evt.Name</option>       
         }
-    </select>
+    </select><br/>
     <button type="submit">Update Booking</button>
 </form>
